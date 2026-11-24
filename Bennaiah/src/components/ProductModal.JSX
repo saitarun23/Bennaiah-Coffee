@@ -54,7 +54,7 @@ export default function ProductModal({ product, onClose, cartItem, addToCart, up
               ) : (
                 <button onClick={() => addToCart(product)} className="btn-gold">
                   <Plus size={16} />
-                  <span>Add to Bag</span>
+                  <span>Add to Cart</span>
                 </button>
               )}
             </div>
