@@ -1,29 +1,29 @@
-import React, { useState, useEffect, useRef } from 'react';
-import './styles/App.css';
-import Header from './components/Header';
-import Footer from './components/Footer';
-import LocationModal from './components/LocationModal';
-import ProductModal from './components/ProductModal';
-import CartDrawer from './components/CartDrawer';
-import CheckoutModal from './components/CheckoutModal';
+import React, { useState, useEffect, useRef } from "react";
+import "./styles/App.css";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+import LocationModal from "./components/LocationModal";
+import ProductModal from "./components/ProductModal";
+import CartDrawer from "./components/CartDrawer";
+import CheckoutModal from "./components/CheckoutModal";
 
-import HomePage from './pages/HomePage';
-import ProductDetailPage from './pages/ProductDetailPage';
-import CategoryPage from './pages/CategoryPage';
-import OrdersTrackPage from './pages/OrdersTrackPage';
-import WishlistPage from './pages/WishlistPage';
-import ProfilePage from './pages/ProfilePage';
+import HomePage from "./pages/HomePage";
+import ProductDetailPage from "./pages/ProductDetailPage";
+import CategoryPage from "./pages/CategoryPage";
+import OrdersTrackPage from "./pages/OrdersTrackPage";
+import WishlistPage from "./pages/WishlistPage";
+import ProfilePage from "./pages/ProfilePage";
 
-import { PRODUCTS, LOCATIONS } from './data/mockData';
+import { PRODUCTS, LOCATIONS } from "./data/mockData";
 
 export default function App() {
-  const [activePage, setActivePage] = useState('home'); // home, product-detail, category, orders, wishlist, profile
-  const [activeCategory, setActiveCategory] = useState('all');
+  const [activePage, setActivePage] = useState("home"); // home, product-detail, category, orders, wishlist, profile
+  const [activeCategory, setActiveCategory] = useState("all");
   const [cart, setCart] = useState([]);
   const [cartOpen, setCartOpen] = useState(false);
   const [wishlist, setWishlist] = useState([]);
   const [selectedProduct, setSelectedProduct] = useState(null);
-  const [searchQuery, setSearchQuery] = useState('');
+  const [searchQuery, setSearchQuery] = useState("");
   const [heroSlide, setHeroSlide] = useState(0);
   const [currentLocation, setCurrentLocation] = useState(LOCATIONS[0]);
   const [showLocationModal, setShowLocationModal] = useState(false);
@@ -38,19 +38,19 @@ export default function App() {
 
   // Scroll to top whenever the page or the opened product changes
   useEffect(() => {
-    window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+    window.scrollTo({ top: 0, left: 0, behavior: "auto" });
   }, [activePage, selectedProduct?.id]);
 
   // Browser Back / Forward support
   useEffect(() => {
-    window.history.replaceState({ page: 'home', productId: null }, '');
+    window.history.replaceState({ page: "home", productId: null }, "");
 
     const onPopState = (event) => {
-      const state = event.state || { page: 'home', productId: null };
+      const state = event.state || { page: "home", productId: null };
       setActivePage(state.page);
       setCartOpen(false);
 
-      if (state.page === 'product-detail' && state.productId) {
+      if (state.page === "product-detail" && state.productId) {
         const product = PRODUCTS.find((p) => p.id === state.productId) || null;
         selectedRef.current = product;
         setSelectedProduct(product);
@@ -60,22 +60,26 @@ export default function App() {
       }
     };
 
-    window.addEventListener('popstate', onPopState);
-    return () => window.removeEventListener('popstate', onPopState);
+    window.addEventListener("popstate", onPopState);
+    return () => window.removeEventListener("popstate", onPopState);
   }, []);
 
   // Every page change adds a browser history entry
   const navigate = (page) => {
-    if (page === activePage && page !== 'product-detail') return;
+    if (page === activePage && page !== "product-detail") return;
 
-    if (page !== 'product-detail') {
+    if (page !== "product-detail") {
       selectedRef.current = null;
       setSelectedProduct(null);
     }
 
     window.history.pushState(
-      { page, productId: page === 'product-detail' ? selectedRef.current?.id ?? null : null },
-      ''
+      {
+        page,
+        productId:
+          page === "product-detail" ? (selectedRef.current?.id ?? null) : null,
+      },
+      "",
     );
     setActivePage(page);
   };
@@ -86,7 +90,9 @@ export default function App() {
       const existing = prev.find((item) => item.id === product.id);
       if (existing) {
         return prev.map((item) =>
-          item.id === product.id ? { ...item, quantity: item.quantity + 1 } : item
+          item.id === product.id
+            ? { ...item, quantity: item.quantity + 1 }
+            : item,
         );
       }
       return [...prev, { ...product, quantity: 1 }];
@@ -103,30 +109,40 @@ export default function App() {
           }
           return item;
         })
-        .filter(Boolean)
+        .filter(Boolean),
     );
   };
 
   const toggleWishlist = (productId) => {
     setWishlist((prev) =>
-      prev.includes(productId) ? prev.filter((id) => id !== productId) : [...prev, productId]
+      prev.includes(productId)
+        ? prev.filter((id) => id !== productId)
+        : [...prev, productId],
     );
   };
 
   const filteredProducts = PRODUCTS.filter((p) => {
-    const matchesCategory = activeCategory === 'all' || p.category === activeCategory;
-    const matchesSearch = p.name.toLowerCase().includes(searchQuery.toLowerCase());
+    const matchesCategory =
+      activeCategory === "all" || p.category === activeCategory;
+    const matchesSearch = p.name
+      .toLowerCase()
+      .includes(searchQuery.toLowerCase());
     return matchesCategory && matchesSearch;
   });
 
   const cartCount = cart.reduce((acc, item) => acc + item.quantity, 0);
-  const subtotal = cart.reduce((acc, item) => acc + item.price * item.quantity, 0);
+  const subtotal = cart.reduce(
+    (acc, item) => acc + item.price * item.quantity,
+    0,
+  );
   const freeShippingTarget = 25;
 
   return (
     <div className="app">
       <div>
         <Header
+          currentLocation={currentLocation}
+          setShowLocationModal={setShowLocationModal}
           searchQuery={searchQuery}
           setSearchQuery={setSearchQuery}
           wishlist={wishlist}
@@ -137,7 +153,7 @@ export default function App() {
         />
 
         <main className="app__main">
-          {activePage === 'home' && (
+          {activePage === "home" && (
             <HomePage
               heroSlide={heroSlide}
               setHeroSlide={setHeroSlide}
@@ -154,7 +170,7 @@ export default function App() {
             />
           )}
 
-          {activePage === 'product-detail' && (
+          {activePage === "product-detail" && (
             <ProductDetailPage
               product={selectedProduct}
               onBack={() => window.history.back()}
@@ -168,7 +184,7 @@ export default function App() {
             />
           )}
 
-          {activePage === 'category' && (
+          {activePage === "category" && (
             <CategoryPage
               activeCategory={activeCategory}
               setActiveCategory={setActiveCategory}
@@ -183,13 +199,18 @@ export default function App() {
             />
           )}
 
-          {activePage === 'orders' && <OrdersTrackPage currentLocation={currentLocation} />}
-
-          {activePage === 'profile' && (
-            <ProfilePage currentLocation={currentLocation} onNavigate={navigate} />
+          {activePage === "orders" && (
+            <OrdersTrackPage currentLocation={currentLocation} />
           )}
 
-          {activePage === 'wishlist' && (
+          {activePage === "profile" && (
+            <ProfilePage
+              currentLocation={currentLocation}
+              onNavigate={navigate}
+            />
+          )}
+
+          {activePage === "wishlist" && (
             <WishlistPage
               wishlist={wishlist}
               allProducts={PRODUCTS}
@@ -214,7 +235,7 @@ export default function App() {
         />
       )}
 
-      {selectedProduct && activePage !== 'product-detail' && (
+      {selectedProduct && activePage !== "product-detail" && (
         <ProductModal
           product={selectedProduct}
           onClose={() => selectProduct(null)}
@@ -247,7 +268,7 @@ export default function App() {
           onOrderSuccess={() => {
             setCart([]);
             setCheckoutStep(4);
-            navigate('orders');
+            navigate("orders");
           }}
         />
       )}

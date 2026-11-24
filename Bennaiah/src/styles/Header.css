@@ -12,6 +12,25 @@
 .header__name { display: block; font-family: var(--font-display); font-size: 22px; font-weight: 900; letter-spacing: .02em; color: var(--gold); }
 .header__tagline { display: block; font-family: var(--font-body); font-size: 8px; font-weight: 700; text-transform: uppercase; letter-spacing: .16em; color: #065f46; white-space: nowrap; }
 
+/* Location selector (hidden on phones and tablets, shown on desktop) */
+.header__location {
+  display: none;
+  align-items: center; gap: 10px;
+  background: var(--cream-3); border: 1px solid var(--border);
+  padding: 8px 14px; border-radius: 12px; cursor: pointer;
+  text-align: left; transition: background .2s; flex-shrink: 0;
+}
+.header__location:hover { background: var(--amber-100); }
+.header__location svg { width: 18px; height: 18px; color: var(--gold); flex-shrink: 0; }
+.header__location-text { display: flex; flex-direction: column; line-height: 1.2; }
+.header__location-label {
+  display: flex; align-items: center; gap: 4px;
+  font-size: 10px; font-weight: 700; text-transform: uppercase;
+  letter-spacing: .08em; color: #065f46;
+}
+.header__location-label svg { width: 12px; height: 12px; color: #065f46; }
+.header__location-city { font-size: 13px; font-weight: 800; color: var(--slate-800); }
+
 /* Search: full-width second row on phones */
 .header__search { order: 3; flex: 1 1 100%; position: relative; }
 .header__search-icon { position: absolute; left: 14px; top: 50%; transform: translateY(-50%); width: 16px; height: 16px; color: rgba(138, 90, 18, .6); }
@@ -27,6 +46,7 @@
 .header__nav-btn {
   display: inline-flex; align-items: center; gap: 6px; padding: 10px; border-radius: 12px;
   font-size: 14px; font-weight: 700; color: var(--slate-600); transition: all .2s; position: relative;
+  background: transparent; border: 0; cursor: pointer;
 }
 .header__nav-btn svg { width: 20px; height: 20px; }
 .header__nav-btn:hover { background: rgba(254, 243, 199, .6); color: var(--gold); }
@@ -40,6 +60,7 @@
 .header__bag {
   display: inline-flex; align-items: center; gap: 8px; background: var(--gold); color: #fff;
   padding: 10px 12px; border-radius: 12px; font-weight: 800; font-size: 14px; transition: all .2s;
+  border: 0; cursor: pointer;
 }
 .header__bag:hover { background: var(--gold-dark); }
 .header__bag:active { transform: scale(.95); }
@@ -75,4 +96,6 @@
   .header__logo { width: 96px; height: 96px; }
   .header__name { font-size: 36px; }
   .header__tagline { font-size: 11px; letter-spacing: .2em; }
+  .header__location { display: inline-flex; }
+  .header__search { max-width: 300px; }
 }
