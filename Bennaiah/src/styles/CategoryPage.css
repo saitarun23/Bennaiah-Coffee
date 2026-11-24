@@ -1,0 +1,30 @@
+.catpage { display: flex; flex-direction: column; gap: 20px; }
+.catpage__banner { background: linear-gradient(to right, var(--brown-900), var(--brown-800), var(--gold)); border-radius: 20px; padding: 20px; color: #fff; display: flex; align-items: center; justify-content: space-between; gap: 16px; overflow: hidden; }
+.catpage__banner-text { max-width: 512px; display: flex; flex-direction: column; gap: 6px; }
+.catpage__eyebrow { font-size: 12px; font-weight: 800; letter-spacing: .12em; color: var(--amber-300); }
+.catpage__banner h2 { font-family: var(--font-display); font-size: 24px; font-weight: 900; }
+.catpage__banner p { font-size: 12px; color: var(--amber-100); line-height: 1.6; }
+.catpage__banner-img { display: none; width: 112px; height: 112px; border-radius: 16px; object-fit: cover; border: 2px solid rgba(255,255,255,.3); flex-shrink: 0; }
+
+.catpage__bar { background: #fff; padding: 12px; border-radius: 16px; border: 1px solid var(--border); display: flex; flex-direction: column; gap: 12px; }
+.catpage__pills { display: flex; gap: 8px; overflow-x: auto; width: 100%; padding-bottom: 4px; -webkit-overflow-scrolling: touch; }
+.catpage__pill { padding: 8px 14px; border-radius: 12px; font-size: 12px; font-weight: 700; white-space: nowrap; background: var(--cream-2); color: var(--slate-700); transition: all .2s; flex-shrink: 0; }
+.catpage__pill:hover { background: var(--amber-100); color: var(--gold); }
+.catpage__pill--active, .catpage__pill--active:hover { background: var(--gold); color: #fff; }
+.catpage__sort { display: flex; align-items: center; gap: 8px; align-self: flex-end; }
+.catpage__sort svg { width: 16px; height: 16px; color: var(--gold); }
+.catpage__sort select { background: #fff; border: 1px solid var(--amber-200); border-radius: 12px; padding: 8px 12px; font-size: 12px; font-weight: 700; color: var(--slate-700); outline: none; }
+.catpage__sort select:focus { border-color: var(--gold); box-shadow: 0 0 0 3px rgba(138, 90, 18, .2); }
+
+@media (min-width: 640px) {
+  .catpage__banner { padding: 28px; border-radius: 24px; }
+  .catpage__banner h2 { font-size: 30px; }
+  .catpage__banner-img { display: block; }
+}
+@media (min-width: 768px) {
+  .catpage { gap: 24px; }
+  .catpage__bar { flex-direction: row; align-items: center; justify-content: space-between; padding: 16px; }
+  .catpage__pills { width: auto; padding-bottom: 0; }
+  .catpage__sort { align-self: auto; }
+}
+@media (min-width: 1024px) { .catpage__banner { padding: 32px; } .catpage__banner-img { width: 128px; height: 128px; } }

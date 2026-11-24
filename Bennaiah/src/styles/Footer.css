@@ -1,0 +1,56 @@
+.footer { background: var(--brown-900); color: rgba(254, 243, 199, .8); margin-top: 48px; padding: 32px 0 24px; border-top: 1px solid rgba(138, 90, 18, .4); }
+
+.footer__highlights { display: grid; grid-template-columns: 1fr; gap: 12px; padding-bottom: 32px; border-bottom: 1px solid rgba(255, 255, 255, .1); }
+.footer__highlight { display: flex; align-items: center; gap: 14px; background: rgba(255, 255, 255, .05); padding: 14px; border: 1px solid rgba(255, 255, 255, .1); border-radius: 16px; }
+.footer__highlight-icon { padding: 10px; border-radius: 12px; background: rgba(138, 90, 18, .3); color: var(--amber-300); line-height: 0; }
+.footer__highlight-icon svg { width: 24px; height: 24px; }
+.footer__highlight h4 { font-family: var(--font-display); font-weight: 800; font-size: 14px; color: #fff; }
+.footer__highlight p { font-size: 12px; color: rgba(254, 243, 199, .6); }
+
+.footer__main { display: grid; grid-template-columns: 1fr 1fr; gap: 28px 20px; padding: 32px 0; border-bottom: 1px solid rgba(255, 255, 255, .1); }
+.footer__brand { grid-column: 1 / -1; display: flex; flex-direction: column; gap: 16px; }
+.footer__brand-row { display: flex; align-items: center; gap: 12px; }
+.footer__logo { width: 56px; height: 56px; border-radius: 50%; overflow: hidden; flex-shrink: 0; background: var(--cream-3); }
+.footer__logo img { width: 100%; height: 100%; object-fit: cover; transform: scale(1.3); }
+.footer__brand-text { line-height: 1.15; }
+.footer__name { display: block; font-family: var(--font-display); font-size: 24px; font-weight: 900; letter-spacing: .02em; color: var(--amber-300); }
+.footer__tagline { display: block; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: .2em; color: rgba(254, 243, 199, .7); }
+.footer__about { font-size: 12px; line-height: 1.6; color: rgba(254, 243, 199, .6); max-width: 380px; }
+
+.footer__newsletter > span { display: block; font-size: 12px; font-weight: 700; color: #fff; margin-bottom: 8px; }
+.footer__newsletter-row { display: flex; max-width: 380px; }
+.footer__newsletter-field { position: relative; flex: 1; min-width: 0; }
+.footer__newsletter-field svg { position: absolute; left: 12px; top: 50%; transform: translateY(-50%); width: 16px; height: 16px; color: var(--gold); }
+.footer__newsletter-field input {
+  width: 100%; background: #fff; border: 1px solid var(--amber-200); color: var(--slate-800);
+  font-size: 12px; padding: 11px 12px 11px 36px; border-radius: 12px 0 0 12px; outline: none;
+}
+.footer__newsletter-field input:focus { border-color: var(--gold); }
+.footer__join { background: var(--gold); color: #fff; padding: 0 16px; font-size: 12px; font-weight: 700; border-radius: 0 12px 12px 0; display: flex; align-items: center; gap: 4px; transition: background .2s; }
+.footer__join:hover { background: var(--gold-light); }
+.footer__join svg { width: 14px; height: 14px; }
+
+.footer__col h5 { font-family: var(--font-display); font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; color: var(--amber-300); margin-bottom: 14px; }
+.footer__col ul { display: flex; flex-direction: column; gap: 8px; font-size: 12px; font-weight: 500; color: rgba(254, 243, 199, .7); }
+.footer__col li, .footer__legal span { cursor: pointer; transition: color .2s; }
+.footer__col li:hover, .footer__legal span:hover { color: var(--amber-300); }
+.footer__col:last-child { grid-column: 1 / -1; }
+
+.footer__bottom { padding-top: 24px; display: flex; flex-direction: column; align-items: center; gap: 12px; font-size: 12px; color: rgba(254, 243, 199, .5); text-align: center; }
+.footer__legal { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 20px; }
+
+/* Tablet */
+@media (min-width: 640px) {
+  .footer__highlights { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  .footer__main { grid-template-columns: repeat(3, 1fr); }
+  .footer__brand { grid-column: 1 / -1; }
+  .footer__col:last-child { grid-column: auto; }
+  .footer__bottom { flex-direction: row; justify-content: space-between; text-align: left; }
+}
+/* Desktop */
+@media (min-width: 1024px) {
+  .footer { margin-top: 64px; padding-top: 48px; }
+  .footer__highlights { grid-template-columns: repeat(4, 1fr); gap: 24px; padding-bottom: 48px; }
+  .footer__main { grid-template-columns: 2fr 1fr 1fr 1fr; gap: 32px; padding: 48px 0; }
+  .footer__brand { grid-column: auto; }
+}

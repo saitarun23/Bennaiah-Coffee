@@ -1,0 +1,14 @@
+.wish { display: flex; flex-direction: column; gap: 20px; }
+.wish__head { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; background: #fff; padding: 16px; border-radius: 20px; border: 1px solid var(--border); }
+.wish__head-left { display: flex; align-items: center; gap: 12px; }
+.wish__icon { padding: 12px; background: #fff1f2; color: var(--rose); border-radius: 16px; line-height: 0; }
+.wish__icon svg { width: 24px; height: 24px; fill: currentColor; }
+.wish__head h2 { font-family: var(--font-display); font-size: 20px; font-weight: 900; color: var(--gold); }
+.wish__head p { font-size: 12px; color: var(--slate-500); }
+.wish__empty { background: #fff; border-radius: 24px; padding: 48px 20px; text-align: center; border: 1px solid var(--border); display: flex; flex-direction: column; align-items: center; gap: 14px; }
+.wish__empty svg { width: 48px; height: 48px; color: var(--amber-200); }
+.wish__empty h3 { font-family: var(--font-display); font-size: 20px; font-weight: 700; color: var(--brown-900); }
+.wish__empty p { font-size: 12px; color: var(--slate-500); max-width: 384px; }
+.wish__empty .btn-gold { padding: 10px 24px; font-size: 12px; }
+
+@media (min-width: 768px) { .wish { gap: 24px; } .wish__head { padding: 24px; border-radius: 24px; } .wish__head h2 { font-size: 24px; } .wish__empty { padding: 64px 24px; } }

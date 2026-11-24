@@ -1,0 +1,13 @@
+.location { background: var(--cream); border-radius: 16px; width: 100%; max-width: 448px; max-height: 90vh; overflow-y: auto; padding: 24px; border: 1px solid var(--border); position: relative; }
+.location__title { font-family: var(--font-display); font-size: 20px; font-weight: 800; color: var(--gold); display: flex; align-items: center; gap: 8px; margin-bottom: 4px; padding-right: 36px; }
+.location__title svg { width: 20px; height: 20px; }
+.location__sub { font-size: 12px; color: var(--slate-500); margin-bottom: 16px; }
+.location__list { display: flex; flex-direction: column; gap: 10px; }
+.location__option { width: 100%; text-align: left; padding: 14px; border-radius: 12px; border: 1px solid var(--amber-200); background: #fff; display: flex; align-items: center; justify-content: space-between; gap: 8px; transition: all .2s; }
+.location__option:hover { border-color: rgba(138, 90, 18, .5); background: var(--cream-2); }
+.location__option--selected { border-color: var(--gold); }
+.location__city { font-weight: 700; font-size: 14px; color: var(--slate-900); }
+.location__hub { font-size: 12px; color: var(--slate-500); }
+.location__right { display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
+.location__right svg { width: 20px; height: 20px; color: var(--gold); }
+.location__status { font-size: 10px; font-weight: 700; background: var(--amber-100); color: var(--gold); padding: 2px 8px; border-radius: 6px; }

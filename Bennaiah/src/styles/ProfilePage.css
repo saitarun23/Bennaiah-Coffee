@@ -1,0 +1,37 @@
+.profile { max-width: 896px; margin: 0 auto; display: flex; flex-direction: column; gap: 20px; }
+.profile__head { background: #fff; padding: 16px; border-radius: 20px; border: 1px solid var(--border); display: flex; align-items: center; gap: 16px; }
+.profile__avatar { font-family: var(--font-display); width: 56px; height: 56px; border-radius: 16px; background: var(--gold); color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 22px; flex-shrink: 0; }
+.profile__head-text { flex: 1; min-width: 0; }
+.profile__head h2 { font-family: var(--font-display); font-size: 22px; font-weight: 900; color: var(--brown-900); }
+.profile__contact { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; font-size: 12px; color: var(--slate-500); word-break: break-word; }
+.profile__tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
+.profile__tag { display: inline-flex; align-items: center; gap: 4px; font-size: 10px; font-weight: 800; padding: 2px 10px; border-radius: 999px; }
+.profile__tag svg { width: 12px; height: 12px; }
+.profile__tag--gold { background: var(--amber-100); color: var(--gold); text-transform: uppercase; }
+.profile__tag--green { background: rgba(47, 93, 58, .1); color: var(--green); }
+
+.profile__grid { display: grid; grid-template-columns: 1fr; gap: 16px; }
+.profile__card { background: #fff; padding: 20px; border-radius: 24px; border: 1px solid var(--border); display: flex; flex-direction: column; gap: 14px; }
+.profile__card h3 { font-family: var(--font-display); font-size: 13px; font-weight: 800; text-transform: uppercase; letter-spacing: .06em; color: var(--gold); display: flex; align-items: center; gap: 8px; }
+.profile__card h3 svg { width: 16px; height: 16px; }
+.profile__row { padding: 14px; border-radius: 12px; border: 1px solid var(--border); background: var(--cream-2); display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+.profile__row--active { border-color: var(--gold); }
+.profile__row-title { font-weight: 700; font-size: 12px; color: var(--slate-900); }
+.profile__row-sub { font-size: 11px; color: var(--slate-500); }
+.profile__active { font-size: 10px; font-weight: 700; color: var(--gold); background: #fff; padding: 2px 8px; border-radius: 4px; border: 1px solid var(--amber-200); }
+.profile__balance { font-family: var(--font-display); font-size: 20px; font-weight: 900; color: var(--gold); }
+.profile__cash { font-size: 12px; padding: 6px 12px; border-radius: 8px; }
+
+.profile__menu { background: #fff; border-radius: 24px; border: 1px solid var(--border); overflow: hidden; }
+.profile__menu button { width: 100%; padding: 16px; display: flex; align-items: center; justify-content: space-between; text-align: left; transition: background .2s; }
+.profile__menu button + button { border-top: 1px solid var(--amber-100); }
+.profile__menu button:hover { background: var(--cream-2); }
+.profile__menu button div { display: flex; align-items: center; gap: 12px; }
+.profile__menu button span { font-size: 12px; font-weight: 700; color: var(--slate-800); }
+.profile__menu svg { width: 20px; height: 20px; }
+.profile__menu .gold { color: var(--gold); }
+.profile__menu .rose { color: var(--rose); }
+.profile__menu > button > svg { width: 16px; height: 16px; color: var(--slate-400); }
+
+@media (min-width: 640px) { .profile__head { padding: 28px; border-radius: 24px; } .profile__avatar { width: 64px; height: 64px; font-size: 24px; } .profile__head h2 { font-size: 24px; } }
+@media (min-width: 768px) { .profile { gap: 24px; } .profile__grid { grid-template-columns: 1fr 1fr; gap: 24px; } .profile__card { padding: 24px; } }

@@ -1,0 +1,22 @@
+/* Phone & tablet: horizontal scroller. Desktop: sticky sidebar. */
+.rail { width: 100%; flex-shrink: 0; }
+.rail__card { background: #fff; border-radius: 16px; padding: 12px; border: 1px solid var(--border); }
+.rail__title { font-family: var(--font-display); font-size: 13px; font-weight: 800; text-transform: uppercase; letter-spacing: .08em; color: var(--gold); margin-bottom: 10px; padding: 0 8px; }
+.rail__list { display: flex; gap: 6px; overflow-x: auto; padding-bottom: 4px; -webkit-overflow-scrolling: touch; }
+.rail__item { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 8px 10px; border-radius: 12px; white-space: nowrap; color: var(--slate-700); transition: all .2s; flex-shrink: 0; }
+.rail__item:hover { background: var(--cream-2); color: var(--gold); }
+.rail__item--active, .rail__item--active:hover { background: var(--gold); color: #fff; font-weight: 700; }
+.rail__item-left { display: flex; align-items: center; gap: 10px; }
+.rail__item-left img { width: 28px; height: 28px; border-radius: 8px; object-fit: cover; }
+.rail__item-left span { font-size: 13px; font-weight: 700; }
+.rail__count { font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 999px; background: var(--cream-2); color: var(--gold); }
+.rail__item--active .rail__count { background: rgba(255,255,255,.2); color: #fff; }
+
+@media (min-width: 1024px) {
+  .rail { width: 256px; }
+  .rail__card { padding: 16px; position: sticky; top: 140px; }
+  .rail__list { flex-direction: column; overflow: visible; padding-bottom: 0; gap: 6px; }
+  .rail__item { white-space: normal; flex-shrink: 1; padding: 10px; }
+  .rail__item-left img { width: 32px; height: 32px; }
+  .rail__item-left span { font-size: 14px; }
+}
